@@ -14,6 +14,12 @@ var router = require('./controllers/router.js');
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
+var mongoose = require("mongoose");
+
+
+function toObjectId(id) {
+	return mongoose.Types.ObjectId(id);
+}
 
   // trust the proxy to get true IP addresses
     app.enable('trust proxy');
@@ -45,6 +51,32 @@ var io = require('socket.io')(http);
 io.on('connection', function(socket){
   console.log('a user connected');
 });
+
+
+io.on('newmessage', function(data) {
+
+        var options = {
+            message: data.message, //it means we would require 'message' in the request structure from the frontend
+            messageby: toObjectId('507f191e810c19729de860ea')//data.messageby //it means we would require 'messageby' in the request structure from the frontend
+        };
+
+        var Message = require("models/messages.js").Messages;
+    
+    var c = new Message();
+    c.create(options, function(data){
+            // res.json({"status":"100", "info" : data});
+             io.emit('messagecreated', data)
+    });
+
+  });
+
+// io.on('connection', function (socket) {
+//     socket.emit('message', { message: 'welcome to the chat' });
+//     socket.on('send', function (data) {
+//         io.sockets.emit('message', data);
+//     });
+// });
+
 // CATASTROPHIC ERROR
 app.use(function(err, req, res, next){
   console.error(err.stack);
