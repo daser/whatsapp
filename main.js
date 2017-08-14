@@ -42,7 +42,9 @@ var io = require('socket.io')(http);
 
     console.log('WhatsappClone started. Listening on port ' + port);
 
-
+io.on('connection', function(socket){
+  console.log('a user connected');
+});
 // CATASTROPHIC ERROR
 app.use(function(err, req, res, next){
   console.error(err.stack);
