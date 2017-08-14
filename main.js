@@ -32,7 +32,10 @@ var io = require('socket.io')(http);
 
 
     // START APPLICATION
-    app.listen(port, ip);
+   // app.listen(port, ip);
+    http.listen(port, function() {
+    console.log('Server Started. Listening on *:' + port);
+});
 
     app.get('/', function(req, res) { res.send('Hello from WhatsappClone'); });
     router.route(app);
