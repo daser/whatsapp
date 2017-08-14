@@ -8,7 +8,9 @@ function route(app)
     //Using this format it means we can separate router classes
     var chatController = require("./chat.js");
     chatController.route(app);
-
+    
+    var memberController = require("./member.js");
+    memberController.route(app);
 
     //var accountController = require("./account.js");
     //accountController.route(app);

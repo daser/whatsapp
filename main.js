@@ -4,12 +4,14 @@ global.db =  require("./libs/data/db.js")();
 var cors = require("cors");
 var logger = require('morgan');
 var express = require('express');
-var app = express();
+var app = express(); //i can see your cursor here
 var methodOverride = require('method-override');
 var compress = require('compression');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var router = require('./controllers/router.js');
+
+
 
   // trust the proxy to get true IP addresses
     app.enable('trust proxy');
