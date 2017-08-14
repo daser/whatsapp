@@ -1,4 +1,4 @@
-global.db =  require("./lib/data/db.js")();
+global.db =  require("./libs/data/db.js")();
 //var cors = require("./lib/api_cors/cors.js");
 
 var cors = require("cors");
