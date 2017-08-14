@@ -11,6 +11,8 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var router = require('./controllers/router.js');
 
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 
   // trust the proxy to get true IP addresses

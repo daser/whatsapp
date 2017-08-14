@@ -9,7 +9,7 @@ function route(app)
     var chatController = require("./chat.js");
     chatController.route(app);
     
-    var memberController = require("./member.js");
+    var memberController = require("./account.js");
     memberController.route(app);
 
     //var accountController = require("./account.js");
