@@ -54,7 +54,7 @@ io.on('connection', function(socket){
 
 
 io.on('newmessage', function(data) {
-
+console.log("i got here");
         var options = {
             message: data.message, //it means we would require 'message' in the request structure from the frontend
             messageby: toObjectId('507f191e810c19729de860ea')//data.messageby //it means we would require 'messageby' in the request structure from the frontend
