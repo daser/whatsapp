@@ -45,7 +45,7 @@ function route(app) {
         var postData = {
             fullname: req.body.fullname, 
             shortname: req.body.shortname,
-            phone: toObjectId(req.body.messageby) 
+            phone: req.body.phone 
         };
         var Member = require("../models/members.js").Members;
 
