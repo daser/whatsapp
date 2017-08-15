@@ -29,6 +29,7 @@ function toObjectId(id) {
     app.use(compress());
     app.use(methodOverride('X-HTTP-Method-Override'));
 //    app.use(bodyParser.text({ type: 'text/html' }));
+    app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
     app.use(cookieParser());
 
