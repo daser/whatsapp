@@ -40,14 +40,13 @@ function route(app) {
        
     });
     
-    app.post('/api/accounts', function (req, res, next) {
+    app.post('/api/accounts/create', function (req, res, next) {
         
         var postData = {
             fullname: req.body.message, 
             shortname: req.body.shortname,
             phone: toObjectId(req.body.messageby) 
         };
-
         var Member = require("../models/members.js").Members;
 
         var c = new Member();
