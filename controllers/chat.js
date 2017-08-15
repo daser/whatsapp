@@ -8,6 +8,14 @@ function toObjectId(id) {
 
 
 function route(app) {
+  
+  app.get('/api/message/all', function (req, res, next){
+    var Message = require("../models/messages.js").Messages;   
+    var c = new Message();
+    c.findAll(function(data) {
+      res.json(data);
+    });
+  });
     
      // get financial data
     app.get('/api/test', function (req, res, next) {
@@ -94,16 +102,6 @@ function route(app) {
     
   });  
 
-
-
- app.get('/api/message/all', function (req, res, next){
-    var Message = require("../models/messages.js").Messages;   
-    var c = new Message();
-    c.findAll(function(data) {
-      res.json(data);
-    });
-  });
-  
     
 }
 
