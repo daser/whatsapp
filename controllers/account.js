@@ -43,7 +43,7 @@ function route(app) {
     app.post('/api/accounts/create', function (req, res, next) {
         
         var postData = {
-            fullname: req.body.message, 
+            fullname: req.body.fullname, 
             shortname: req.body.shortname,
             phone: toObjectId(req.body.messageby) 
         };

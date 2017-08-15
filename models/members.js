@@ -1,4 +1,4 @@
-var MembersDB = require('./members/members-db.js');
+var MembersDB = require('./messages/members-db.js');
 var MemberModel = MembersDB.MemberModel;
 
 function Member() {
