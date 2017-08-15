@@ -70,9 +70,9 @@ function route(app) {
 
    //app.delete('/message/:id', function (req, res, next) 
    //Usman, do you prefer the delete verb abi make i leave am as post
-  
+  // i prefer the delete verb
       
-   app.post('/message/delete/:id', function (req, res, next) {
+   app.post('/api/message/delete/:id', function (req, res, next) {
     
     var Message = require("../models/messages.js").Messages;   
     var c = new Message();
