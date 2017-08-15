@@ -96,7 +96,7 @@ function route(app) {
 
 
 
- app.get('/api/messages/all', function (req, res, next){
+ app.get('/api/message/all', function (req, res, next){
     var Message = require("../models/messages.js").Messages;   
     var c = new Message();
     c.findAll(function(data) {
