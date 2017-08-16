@@ -98,7 +98,7 @@ console.log("i got here");
     socket.on('fetchMessages', function(){
         request('https://whatsappdemo.herokuapp.com/api/message/all', function (error, response, body) {
             if(!error && response.statusCode == 200){
-                socket.emit("fetchMessages", {message: body}); 
+                socket.emit("fetchMessages", body); 
             }
         });
     });
@@ -106,7 +106,7 @@ console.log("i got here");
     socket.on('fetchMessagesWithUsers', function(){
         request('https://whatsappdemo.herokuapp.com/api/message/allwithusers', function (error, response, body) {
             if(!error && response.statusCode == 200){
-                socket.emit("fetchMessagesWithUsers", {message: body}); 
+                socket.emit("fetchMessagesWithUsers", body); 
             }
         });
     });
