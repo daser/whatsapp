@@ -49,6 +49,26 @@ Message.prototype.findById = function(id, callback) {
       });
     };
 
+ Message.prototype.findAllMsgUsers = function(callback){
+    //   MessageModel.find({messageby: members._id}, function(err, record) {
+          
+    //       if(err){
+    //           callback(err);
+    //       }else{
+    //           callback(record);
+    //       }
+          
+    //   });
+    MessageModel.find().populate('messageby').exec(function(err, record) {
+    //console.log(groups[0][0].name)
+     if(err){
+               callback(err);
+           }else{
+               callback(record);
+           }
+    });
+  
+ }
 
  Message.prototype.findAll = function(callback){
         

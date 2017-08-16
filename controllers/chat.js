@@ -23,8 +23,15 @@ function route(app) {
     });
     
     
+  app.get('/api/message/allwithusers', function(req, res, next){
+    var Message = require("../models/messages.js").Messages;   
+    var c = new Message();
+    c.findAllMsgUsers(function(data) {
+      res.json(data);
+    });
+  });
     
-    //get By Employee Id
+    
   app.get('/api/message/:id', function (req, res, next) {
     
     var Message = require("../models/messages.js").Messages;   

@@ -71,12 +71,12 @@ console.log("i got here");
 
   });
 
-// io.on('connection', function (socket) {
-//     socket.emit('message', { message: 'welcome to the chat' });
-//     socket.on('send', function (data) {
-//         io.sockets.emit('message', data);
-//     });
-// });
+ io.on('connection', function (socket) {
+     socket.emit('message', { message: 'welcome to the chat' });
+    //  socket.on('send', function (data) {
+    //      io.sockets.emit('message', data);
+    //  });
+});
 
 // CATASTROPHIC ERROR
 app.use(function(err, req, res, next){
