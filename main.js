@@ -81,22 +81,27 @@ console.log("i got here");
                 socket.emit("fetchUsers", {message: body}); 
             }
         });
+     });
         
         
      socket.on('createMsg', function(data){
          console.log("i dey here");
-        request('https://whatsappdemo.herokuapp.com/api/message/new',{body:{'message':data.message,'messageby':data.messageby}} ,function (error, response, body) {
+         
+        request.post('https://whatsappdemo.herokuapp.com/api/message/new',{body:{"message":data.message,"messageby":data.messageby}} ,function (error, response, body) {
             if(!error  && response.statusCode == 200){
                 socket.emit("createMsg", {message: body}); 
             }
         });
-        
-
-
 
      });
      
-     
+    socket.on('fetchMessages', function(){
+        request('https://whatsappdemo.herokuapp.com/api/message/all', function (error, response, body) {
+            if(!error && response.statusCode == 200){
+                socket.emit("fetchMessages", {message: body}); 
+            }
+        });
+    });
      
  });
  

@@ -68,7 +68,7 @@ Message.prototype.findById = function(id, callback) {
            }
     });
   
- }
+ };
 
  Message.prototype.findAll = function(callback){
         
