@@ -110,6 +110,16 @@ console.log("i got here");
             }
         });
     });
+    
+     socket.on('createUser', function(data){
+        request({uri:'https://whatsappdemo.herokuapp.com/api/accounts/create',method: "POST", form:{"fullname":data.fullname,"shortname":data.shortname,"phone": data.phone}} ,function (error, response, body) {
+            if(!error  && response.statusCode == 200){
+                socket.emit("createUser", {message: body}); 
+            }
+        });
+
+     });
+ 
      
  });
  
