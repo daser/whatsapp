@@ -4,7 +4,7 @@ var Schema = db.Schema;
 var MessageSchema = new Schema({
 
 	messageby: {
-	    type: Schema.Types.ObjectId,
+	    type: Schema.ObjectId,
         ref:'members'
 	},
 
