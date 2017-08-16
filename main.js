@@ -76,6 +76,7 @@ console.log("i got here");
      socket.emit('message', { message: 'welcome to the chat' });
      
      socket.on('fetchUsers', function(){
+         console.log("hiya");
          request
                 .get('/api/accounts/all')
                 .on('response', function(response) {
