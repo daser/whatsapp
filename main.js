@@ -90,6 +90,8 @@ console.log("i got here");
         request({uri:'https://whatsappdemo.herokuapp.com/api/message/new',method: "POST", form:{"message":data.message,"messageby":data.messageby}} ,function (error, response, body) {
             if(!error  && response.statusCode == 200){
                 socket.emit("createMsg", body); 
+            }else{
+                socket.emit('createMsg', error);
             }
         });
 
