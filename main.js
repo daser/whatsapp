@@ -78,7 +78,7 @@ console.log("i got here");
      socket.on('fetchUsers', function(){
          console.log("hiya");
          request
-                .get('/api/accounts/all')
+                .get('api/accounts/all')
                 .on('response', function(response) {
                         socket.emit("fetchUsers", {message: response}); 
                 });
