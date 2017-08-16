@@ -1,5 +1,6 @@
 global.db =  require("./libs/data/db.js")();
 //var cors = require("./lib/api_cors/cors.js");
+var request = require('request');
 
 var cors = require("cors");
 var logger = require('morgan');
@@ -75,8 +76,15 @@ console.log("i got here");
      socket.emit('message', { message: 'welcome to the chat' });
      
      socket.on('fetchUsers', function(){
-              socket.emit("fetchUsers", {message: "welcome here"}); 
-     })
+         request
+                .get('/api/accounts/all')
+                .on('response', function(response) {
+                        socket.emit("fetchUsers", {message: response}); 
+                });
+     });
+     
+     
+     
  });
  
  
