@@ -59,7 +59,7 @@ Message.prototype.findById = function(id, callback) {
     //       }
           
     //   });
-    MessageModel.find().populate('messageby').exec(function(err, record) {
+    MessageModel.find({}).populate('members').exec(function(err, record) {
     //console.log(groups[0][0].name)
      if(err){
                callback(err);
@@ -69,6 +69,11 @@ Message.prototype.findById = function(id, callback) {
     });
   
  };
+
+
+//  yourRecord.find({}).populate(branch.$id).exec(function(err, data){
+//   console.log(data)
+//});
 
  Message.prototype.findAll = function(callback){
         

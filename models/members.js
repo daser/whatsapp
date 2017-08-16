@@ -66,5 +66,6 @@ Member.prototype.findById = function(id, callback) {
     };
 
 
+
 }
 module.exports.Members = Member;
