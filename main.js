@@ -78,7 +78,7 @@ console.log("i got here");
     socket.on('fetchUsers', function(){
         request.get('https://whatsappdemo.herokuapp.com/api/accounts/all', function (error, response, body) {
             if(!error && response.statusCode == 200){
-                socket.emit("fetchUsers", {message: body}); 
+                socket.emit("fetchUsers", body); 
             }
         });
     });
