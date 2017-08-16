@@ -73,10 +73,11 @@ console.log("i got here");
 
  io.on('connection', function (socket) {
      socket.emit('message', { message: 'welcome to the chat' });
-    //  socket.on('send', function (data) {
-    //      io.sockets.emit('message', data);
-    //  });
-});
+ });
+ 
+ io.on('fetchUsers', function(socket){
+    socket.emit("fetchUsers", "welcome here"); 
+ });
 
 // CATASTROPHIC ERROR
 app.use(function(err, req, res, next){
