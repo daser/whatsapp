@@ -85,7 +85,7 @@ console.log("i got here");
         
      socket.on('createMsg', function(data){
          console.log("i dey here");
-        request.post('https://whatsappdemo.herokuapp.com/api/message/new',{body:{'message':data.message,'messageby':data.messageby}} ,function (error, response, body) {
+        request('https://whatsappdemo.herokuapp.com/api/message/new',{body:{'message':data.message,'messageby':data.messageby}} ,function (error, response, body) {
             if(!error  && response.statusCode == 200){
                 socket.emit("createMsg", {message: body}); 
             }
