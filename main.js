@@ -77,11 +77,16 @@ console.log("i got here");
      
      socket.on('fetchUsers', function(){
          console.log("hiya");
-         request
-                .get('https://whatsappdemo.herokuapp.com/api/accounts/all')
-                .on('response', function(response) {
-                        socket.emit("fetchUsers", {message: response}); 
-                });
+        //  request
+        //         .get('https://whatsappdemo.herokuapp.com/api/accounts/all')
+        //         .on('response', function(response) {
+        //                 socket.emit("fetchUsers", {message: response}); 
+        //         });
+        
+        request('https://whatsappdemo.herokuapp.com/api/accounts/all', function (error, response, body) {
+            socket.emit("fetchUsers", {message: body}); 
+        });
+
      });
      
      
