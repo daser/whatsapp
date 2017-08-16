@@ -89,9 +89,9 @@ console.log("i got here");
          
         request({uri:'https://whatsappdemo.herokuapp.com/api/message/new',method: "POST", form:{"message":data.message,"messageby":data.messageby}} ,function (error, response, body) {
             if(!error  && response.statusCode == 200){
-                socket.broadcast.emit("createMsg", {message: body}); 
+                io.sockets.emit("createMsg", {message: body}); 
             }else{
-                socket.broadcast.emit('createMsg', error);
+                io.sockets.emit('createMsg', error);
             }
         });
 
@@ -108,7 +108,7 @@ console.log("i got here");
     socket.on('fetchMessagesWithUsers', function(){
         request('https://whatsappdemo.herokuapp.com/api/message/allwithusers', function (error, response, body) {
             if(!error && response.statusCode == 200){
-                socket.broadcast.emit("fetchMessagesWithUsers", body); 
+                io.sockets.emit("fetchMessagesWithUsers", body); 
             }
         });
     });
