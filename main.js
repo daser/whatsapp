@@ -75,19 +75,19 @@ console.log("i got here");
  io.on('connection', function (socket) {
      socket.emit('message', { message: 'A new member just joined' });
      
-     socket.on('fetchUsers', function(){
-        request('https://whatsappdemo.herokuapp.com/api/accounts/all', function (error, response, body) {
+    socket.on('fetchUsers', function(){
+        request.get('https://whatsappdemo.herokuapp.com/api/accounts/all', function (error, response, body) {
             if(!error && response.statusCode == 200){
                 socket.emit("fetchUsers", {message: body}); 
             }
         });
-     });
+    });
         
         
      socket.on('createMsg', function(data){
          console.log("i dey here");
          
-        request.post('https://whatsappdemo.herokuapp.com/api/message/new',{body:{"message":data.message,"messageby":data.messageby}} ,function (error, response, body) {
+        request({uri:'https://whatsappdemo.herokuapp.com/api/message/new',method: "POST", form:{"message":data.message,"messageby":data.messageby}} ,function (error, response, body) {
             if(!error  && response.statusCode == 200){
                 socket.emit("createMsg", {message: body}); 
             }
