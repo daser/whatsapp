@@ -23,7 +23,7 @@ Message.prototype.create = function(properties, callback){
 
 Message.prototype.findById = function(id, callback) {  
         // Access Right: Everybody there own record
-        MessageModel.findOne({_id : id}).populate({'path':'messageby'}).lean().exec(function(err, record) {   
+        MessageModel.findOne({_id : id}).populate('messageby').lean().exec(function(err, record) {   
             if (err) {
                 callback(err);
             }else {
