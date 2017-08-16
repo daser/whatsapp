@@ -7,6 +7,7 @@ var MessageSchema = new Schema({
 	    type: Schema.Types.ObjectId,
         ref:'members'
 	},
+	unicorns: [{ type: Schema.ObjectId, ref: 'member' }],
 
 	message: { type: String, required:true, default:"."},
 	
