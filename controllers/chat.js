@@ -73,8 +73,17 @@ function route(app) {
 
         //res.json(500, data.message);
       } else {
-        //res.json(data);
-        res.json({"status":"100", "info" : data});
+          
+          c.findById(data._id, function (data, err) {
+            if (util.isError(data)) {
+              res.json({"status":"-101", "info":data.message});
+            } else {
+              res.json({"status":"100", "info" : data});
+            }
+          })
+       
+       
+        // res.json({"status":"100", "info" : data});
 
       }
     });
